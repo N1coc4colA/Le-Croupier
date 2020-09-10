@@ -29,7 +29,7 @@ def roulette():
         storage.argent+=mise*3
     elif (num%2 == storage.numero%2):
         storage.argent+=math.ceil(storage.mise*0.5)
-        print("Vous avez gagné ", math.ceil(storage.mise*0.5), ", vous ferez mieux la prochaine fois!")
+        print("Vous avez gagné", math.ceil(storage.mise*0.5) + ", vous ferez mieux la prochaine fois!")
     else:
         storage.argent-=storage.mise
         print("Vous avez perdu, essayez encore, la chance vous sourira peut-être!")
@@ -37,7 +37,6 @@ def roulette():
 
 def getMise():
     m = input("Quelle somme souhaitez vous miser? Entrez la valeur: ")
-    print(m.isdigit())
     if str(m).isdigit() == True:
         if int(m) <= storage.argent:
             storage.mise = int(m)
@@ -57,7 +56,7 @@ def getNumber():
             getNumber()
         else:
             storage.numero = int(n)
-            print("Sam: vous avez misé: ", storage.mise, "sur le numéro ", storage.numero, ". Je lance la roulette!")
+            print("Sam: vous avez misé:", storage.mise, "sur le numéro ", storage.numero + ". Je lance la roulette!")
             roulette()
     else:
         print("Oh, arrêtez ou j'appel la sécu! L'alcool est mauvais pour la santé et votre bourse apparemment...")

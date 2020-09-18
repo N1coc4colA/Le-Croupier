@@ -38,11 +38,9 @@ def getValues():
             variables.numero=int(tmpnumero)
     else:
         getValues()
-    variables.mise = int(input("Quelle somme souhaitez vous miser? Entrez la valeur: "))
-    variables.numero = int(input("Vous voulez miser sur quel numéro? De 1 à 50!"))
+    variables.mise = int
+    variables.numero = int
     print("Sam: vous avez misé: ", variables.mise, "sur le numéro ", variables.numero, ". Je lance la roulette!")
-    """When we'll use digit checks, leave it here will be useful."""
-    roulette()
 
 
 def askContinue():

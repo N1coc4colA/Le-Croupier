@@ -24,6 +24,20 @@ def roulette():
     
 def getValues():
     """Use .isDigit() to check that it is only numbers"""
+    tmpmise=input("Entrez votre valeur")
+    tmpmise.isDigit()
+    if tmpmise.isDigit:
+        variables.mise=int(tmpmise)
+    else:
+        getValues()
+    tmpnuméro=input("Sur quel numéro voulez-vous miser ? Entrez le numéro en question : ")
+    tmpnuméro.isDigit()
+    if tmpnuméro.isDigit:
+        variables.mise=int(tmpnuméro)
+    else:
+        getValues()
+    if variables.mise>=tmpmise:
+        
     variables.mise = int(input("Quelle somme souhaitez vous miser? Entrez la valeur: "))
     variables.numero = int(input("Vous voulez miser sur quel numéro? De 1 à 50!"))
     print("Sam: vous avez misé: ", variables.mise, "sur le numéro ", variables.numero, ". Je lance la roulette!")

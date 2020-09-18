@@ -29,15 +29,15 @@ def getValues():
         if variables.argent>=int(tmpmise) and int(tmpmise)>0:
             variables.mise=int(tmpmise)
             tmpnumero=input("Sur quel numéro voulez-vous miser ? Entrez le numéro en question : ")
-    if tmpnumero.isDigit():
-        if int(tmpnumero)<51 and int(tmpnumero)>0:
-            variables.numero=int(tmpnumero)
-            print("Sam: vous avez misé: ", variables.mise, "sur le numéro ", variables.numero, ". Je lance la roulette!")
-            roulette()
-        else:
-            getValues()
-    else:
-        getValues()
+            if tmpnumero.isDigit():
+                if int(tmpnumero)<51 and int(tmpnumero)>0:
+                    variables.numero=int(tmpnumero)
+                    print("Sam: vous avez misé: ", variables.mise, "sur le numéro ", variables.numero, ". Je lance la roulette!")
+                    roulette()
+                else:
+                    getValues()
+            else:
+                getValues()
         else:
             getValues()
     else:

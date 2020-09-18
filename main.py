@@ -34,8 +34,8 @@ def getValues():
         getValues()
     tmpnumero=input("Sur quel numéro voulez-vous miser ? Entrez le numéro en question : ")
     if tmpnumero.isDigit():
-        if int(tmpnumero)<=50 and int(tmpnumero)>=0:
-        variables.mise=int(tmpnumero)
+        if int(tmpnumero)<51 and int(tmpnumero)>0:
+            variables.numero=int(tmpnumero)
     else:
         getValues()
     variables.mise = int(input("Quelle somme souhaitez vous miser? Entrez la valeur: "))

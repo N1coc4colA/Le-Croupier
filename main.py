@@ -23,6 +23,7 @@ def roulette():
 
     
 def getValues():
+    shouldSkip = False
     tmpmise=input("Entrez votre valeur")
     if tmpmise.isDigit():
         if variables.argent>=int(tmpmise) and int(tmpmise)>0:
@@ -33,15 +34,9 @@ def getValues():
                     variables.numero=int(tmpnumero)
                     print("Sam: vous avez misé: ", variables.mise, "sur le numéro ", variables.numero, ". Je lance la roulette!")
                     roulette()
-                else:
-                    getValues()
-            else:
-                getValues()
-        else:
-            getValues()
-    else:
+                    shouldSkip = True
+    if shouldSkip == False:
         getValues()
-    
 
 def askContinue():
     c=input("Voulez-vous continuer? [O/N]")

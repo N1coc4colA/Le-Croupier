@@ -27,7 +27,9 @@ def getValues():
     tmpmise=input("Entrez votre valeur")
     if tmpmise.isDigit():
         variables.mise=int(tmpmise)
-        if variables.mise>=tmpmise:
+        if variables.argent>=tmpmise:
+            
+            
     else:
         getValues()
     tmpnumero=input("Sur quel numéro voulez-vous miser ? Entrez le numéro en question : ")

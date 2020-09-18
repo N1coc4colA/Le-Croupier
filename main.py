@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Sep  8 08:31:54 2020
-@author: @n1coc4cola
+@author: @n1coc4cola and @teavanuilebigboss           
 """
 
 import variables
@@ -26,12 +26,10 @@ def getValues():
     """Use .isDigit() to check that it is only numbers"""
     tmpmise=input("Entrez votre valeur")
     if tmpmise.isDigit():
-        if variables.argent>=tmpmise and tmpmise>0:
+        if variables.argent>=int(tmpmise) and int(tmpmise)>0:
             variables.mise=int(tmpmise)
         else:
             getValues()
-            
-            
     else:
         getValues()
     tmpnumero=input("Sur quel numéro voulez-vous miser ? Entrez le numéro en question : ")

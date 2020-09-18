@@ -25,15 +25,13 @@ def roulette():
 def getValues():
     """Use .isDigit() to check that it is only numbers"""
     tmpmise=input("Entrez votre valeur")
-    tmpmise.isDigit()
-    if tmpmise.isDigit:
+    if tmpmise.isDigit():
         variables.mise=int(tmpmise)
     else:
         getValues()
-    tmpnuméro=input("Sur quel numéro voulez-vous miser ? Entrez le numéro en question : ")
-    tmpnuméro.isDigit()
-    if tmpnuméro.isDigit:
-        variables.mise=int(tmpnuméro)
+    tmpnumero=input("Sur quel numéro voulez-vous miser ? Entrez le numéro en question : ")
+    if tmpnumero.isDigit():
+        variables.mise=int(tmpnumero)
     else:
         getValues()
     if variables.mise>=tmpmise:

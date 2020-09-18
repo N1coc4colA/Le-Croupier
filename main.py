@@ -36,12 +36,12 @@ def getValues():
     if tmpnumero.isDigit():
         if int(tmpnumero)<51 and int(tmpnumero)>0:
             variables.numero=int(tmpnumero)
+            print("Sam: vous avez misé: ", variables.mise, "sur le numéro ", variables.numero, ". Je lance la roulette!")
+            roulette()
+        else:
+            getValues()
     else:
         getValues()
-    variables.mise = int
-    variables.numero = int
-    print("Sam: vous avez misé: ", variables.mise, "sur le numéro ", variables.numero, ". Je lance la roulette!")
-
 
 def askContinue():
     c=input("Voulez-vous continuer? [O/N]")

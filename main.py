@@ -26,8 +26,10 @@ def getValues():
     """Use .isDigit() to check that it is only numbers"""
     tmpmise=input("Entrez votre valeur")
     if tmpmise.isDigit():
-        variables.mise=int(tmpmise)
         if variables.argent>=tmpmise:
+            variables.mise=int(tmpmise)
+        else:
+            getValues()
             
             
     else:

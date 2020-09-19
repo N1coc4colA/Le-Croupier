@@ -19,7 +19,10 @@ def roulette():
         print("Vous avez gagné ", math.ceil(variables.mise*0.5), ", vous ferez mieux la prochaine fois!")
     else:
         variables.argent-=variables.mise
-        print("Vous avez perdu, essayez encore, la chance vous sourira peut-être!")
+        print("Vous avez perdu votre mise, essayez encore, la chance vous sourira peut-être!")
+    if variables.argent >= 0:
+        variables.lose = True
+        print("Pas de retour en arrière pour vous, vous avez TOUT perdu!! Peut-être que vous reviendrez perdre plus de sous!")
 
 def getMise():
     tmpmise = input("Entrez la valeur de votre mise: ")
@@ -52,11 +55,14 @@ def getValues():
     print("Sam: vous avez misé: ", variables.mise, "sur le numéro ", variables.numero, ". Je lance la roulette!")
 
 def askContinue():
-    c=input("Voulez-vous continuer? [O/N]")
-    if (c[0] == ("o" or "O")):
+    c=input("Voulez-vous continuer, ou avoir de l'aide? [O/N/H]")
+    if (c == ("o" or "O")):
         return True
-    elif(c[0] == ("n" or "N")):
+    elif(c == ("n" or "N")):
         return False
+    elif (c == "h" or "H")):
+        variables.helpme()
+        return askContinue()
     else:
         print("Hey! Ne vous endormez pas, l'argent n'attend pas!")
         return askContinue()
@@ -68,7 +74,7 @@ def showValues(firstTime = False):
 
 def main():
     variables.helpme()
-    while variables.wantsToContinue == True:
+    while variables.wantsToContinue == True and variables.lose == False:
         showValues()
         if askContinue() == True:
             getValues()

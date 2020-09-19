@@ -20,14 +20,14 @@ def roulette():
     else:
         variables.argent-=variables.mise
         print("Vous avez perdu votre mise, essayez encore, la chance vous sourira peut-être!")
-    if variables.argent >= 0:
+    if variables.argent <= 0:
         variables.lose = True
         print("Pas de retour en arrière pour vous, vous avez TOUT perdu!! Peut-être que vous reviendrez perdre plus de sous!")
 
 def getMise():
     tmpmise = input("Entrez la valeur de votre mise: ")
-    if tmpmise.isDigit():
-        if int(tmpmise)>0:e
+    if str(tmpmise).isdigit():
+        if int(tmpmise)>0:
             if variables.argent>=int(tmpmise):
                 return int(tmpmise)
             else:
@@ -39,10 +39,10 @@ def getMise():
     else:
         print("Une nombre entier, pas de virgules ou de lettres enfin!")
         return getMise()
-    
+
 def getNumero():
     tmpnumero = input("Choisissez un nombre entre 1 et 50! ")
-    if tmpnumero.isDigit():
+    if str(tmpnumero).isdigit():
         if int(tmpnumero)<51 and int(tmpnumero)>0:
             return int(tmpnumero)
         else:
@@ -56,11 +56,11 @@ def getValues():
 
 def askContinue():
     c=input("Voulez-vous continuer, ou avoir de l'aide? [O/N/H]")
-    if (c == ("o" or "O")):
+    if c == "o" or c == "O":
         return True
-    elif(c == ("n" or "N")):
+    elif c == "n" or c == "N":
         return False
-    elif (c == "h" or "H")):
+    elif c == "h" or c == "H":
         variables.helpme()
         return askContinue()
     else:
@@ -71,6 +71,8 @@ def showValues(firstTime = False):
     print("Sam: Pour l'instant vous avez: ", variables.argent, "XPF");
     if variables.isFirstTime == False:
         print("Votre dernière mise était de: ", variables.mise, "XPF")
+    else:
+        variables.isFirstTime = False
 
 def main():
     variables.helpme()
@@ -78,8 +80,9 @@ def main():
         showValues()
         if askContinue() == True:
             getValues()
+            roulette()
         else:
             variables.wantsToContinue = False
     print("Sam: Au plaisir de vous revoir dans notre casino!")
-    
+
 main()

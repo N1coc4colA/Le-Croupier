@@ -11,6 +11,7 @@ argent=5000
 numero=0
 wantsToContinue=True
 isFirstTime=True
+lose=False
 
 def helpme():
     print("Nous allons vous expliquer les règles!")

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Sep  8 08:31:54 2020
-@author: @n1coc4cola and @teavanuilebigboss           
+@author: @n1coc4cola and @teavanui
 """
 
 import variables
@@ -21,22 +21,35 @@ def roulette():
         variables.argent-=variables.mise
         print("Vous avez perdu, essayez encore, la chance vous sourira peut-être!")
 
-    
-def getValues():
-    shouldSkip = False
-    tmpmise=input("Entrez votre valeur")
+def getMise():
+    tmpmise = input("Entrez la valeur de votre mise: ")
     if tmpmise.isDigit():
-        if variables.argent>=int(tmpmise) and int(tmpmise)>0:
-            variables.mise=int(tmpmise)
-            tmpnumero=input("Sur quel numéro voulez-vous miser ? Entrez le numéro en question : ")
-            if tmpnumero.isDigit():
-                if int(tmpnumero)<51 and int(tmpnumero)>0:
-                    variables.numero=int(tmpnumero)
-                    print("Sam: vous avez misé: ", variables.mise, "sur le numéro ", variables.numero, ". Je lance la roulette!")
-                    roulette()
-                    shouldSkip = True
-    if shouldSkip == False:
-        getValues()
+        if int(tmpmise)>0:e
+            if variables.argent>=int(tmpmise):
+                return int(tmpmise)
+            else:
+                print("N'ayez pas les yeux plus gros que le ventre!")
+                return getMise()
+        else:
+            print("Ne voyez pas négatif! vous n'avez pas encore perdu!")
+            return getMise()
+    else:
+        print("Une nombre entier, pas de virgules ou de lettres enfin!")
+        return getMise()
+    
+def getNumero():
+    tmpnumero = input("Choisissez un nombre entre 1 et 50! ")
+    if tmpnumero.isDigit():
+        if int(tmpnumero)<51 and int(tmpnumero)>0:
+            return int(tmpnumero)
+        else:
+            print("J'ai dit entre 1 et 50, que faites-vous?")
+            return getNumero()
+
+def getValues():
+    variables.mise = getMise()
+    variables.numero = getNumero()
+    print("Sam: vous avez misé: ", variables.mise, "sur le numéro ", variables.numero, ". Je lance la roulette!")
 
 def askContinue():
     c=input("Voulez-vous continuer? [O/N]")
@@ -47,7 +60,6 @@ def askContinue():
     else:
         print("Hey! Ne vous endormez pas, l'argent n'attend pas!")
         return askContinue()
-
 
 def showValues(firstTime = False):
     print("Sam: Pour l'instant vous avez: ", variables.argent, "XPF");

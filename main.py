@@ -86,3 +86,4 @@ def main():
     print("Sam: Au plaisir de vous revoir dans notre casino!")
 
 main()
+#pour lancer le programme hihi
